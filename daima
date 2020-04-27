@@ -1,0 +1,100 @@
+package 长恨1;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class wss {
+    public static void main(String args[]) {
+        StringBuffer poet = new StringBuffer();
+        Scanner scanner = new Scanner(System.in);
+
+        // 循环读入，直到获取到正确数据
+        while (true){
+            System.out.println("请给出一个标准七言诗:");
+            poet.append(scanner.next());
+            System.out.println(poet.toString());
+
+            if(poet.length()%14 != 0){
+                System.out.println("输入的内容长度不等于14的倍数,请重新输入");
+                poet = new StringBuffer("");
+            }else {
+                // 满足要求，跳出循环
+                break;
+            }
+        }
+
+
+
+        // 记录关键字
+        StringBuffer word = new StringBuffer();
+        // 根据输入确定关键字
+        Scanner scanner1 = new Scanner(System.in);
+        System.out.println("请输入要在本诗中统计个数的文字:");
+        word.append(scanner1.next());
+        System.out.println(word.toString());
+
+
+        //插入逗号句号
+        StringBuffer poetResult = new StringBuffer();
+        for(int i=0; i< poet.length() ; i++){
+            poetResult.append(poet.charAt(i));
+
+            if (i%14 == 6){
+                // 在模14余6的位置插入逗号
+                poetResult.append("，");
+            }else if(i%14 == 13 ){
+                // 在第14余13的位置插入句号
+                poetResult.append("。\n");
+            }
+        }
+
+
+
+        System.out.println("输出断句之后的七言诗：");
+        System.out.println(poetResult);
+        // 保存结果到文件中
+        saveText(poetResult.toString());
+        int count = count(poetResult.toString(), word.toString());
+        System.out.println("包含次数为：" + count );
+        // 保存一个换行
+        saveText("\n");
+        // 保存计算结果
+        saveText(count + "");
+    }
+
+    static int count(String poet, String word) {
+
+        int count = 0;
+
+        // 先分割句号号
+        String[] poets = poet.split("。");
+        for (int i=0; i< poets.length ; i++){
+            // 分割逗号
+            String[] tempArray = poets[i].split(",");
+            for(int j =0; j< tempArray.length; j++){
+                if(tempArray[j].contains(word)){
+                    count ++;
+                }
+            }
+        }
+
+        return count;
+
+    }
+
+    private static void saveText(String content) {
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter("output.txt", true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        PrintWriter pw = new PrintWriter(fw);
+        pw.print(content);
+        pw.flush();
+
+
+    }
+}
