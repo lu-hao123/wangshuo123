@@ -45,7 +45,7 @@ public class wss {
                 // 在模14余6的位置插入逗号
                 poetResult.append("，");
             }else if(i%14 == 13 ){
-                // 在第14余13的位置插入句号
+                // 在模14余13的位置插入句号
                 poetResult.append("。\n");
             }
         }
