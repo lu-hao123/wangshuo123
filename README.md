@@ -36,5 +36,5 @@
 
 # 实验结果
 ![avatar](https://raw.githubusercontent.com/ws1226395769/wangshuo123/master/%E7%BB%93%E6%9E%9C.png)
-![avatar]()
+![avatar](https://raw.githubusercontent.com/ws1226395769/wangshuo123/master/%E7%BB%93%E6%9E%9C1.png)
 ![avatar]()
