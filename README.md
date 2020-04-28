@@ -34,3 +34,7 @@
 #### 代码解释
 这部分代码是整段代码中最重要的一部分，他利用七言诗的特点，将七言诗分成两个部分，在模14余6的位置插入逗号，在模14余13的位置插入句号。
 
+# 实验结果
+![avatar](https://raw.githubusercontent.com/ws1226395769/wangshuo123/master/%E7%BB%93%E6%9E%9C.png)
+![avatar]()
+![avatar]()
